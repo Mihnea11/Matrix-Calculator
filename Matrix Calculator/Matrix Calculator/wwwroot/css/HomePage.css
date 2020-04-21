@@ -1,0 +1,52 @@
+﻿h1 {
+    padding-top: 40px;
+    text-align: center;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: black;
+}
+
+.imageOptions{
+    text-align: center;
+    padding-bottom:30px;
+}
+
+.image{
+    display: inline-block;
+    align-items:center;
+    position:relative;
+}
+
+.image img{
+    opacity: 1;
+    transition: .3s;
+    width: 70%;
+    height: auto;
+    padding: 20px;
+}
+
+.image-text {
+    opacity: 0;
+    transition: .3s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.image:hover img{
+    opacity: .3;
+    transition: .5s;
+}
+
+.image:hover .image-text{
+    opacity: 1;
+    transition: .5s;
+}
+
+.text {
+    font-size: 3em;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    color: black;
+}

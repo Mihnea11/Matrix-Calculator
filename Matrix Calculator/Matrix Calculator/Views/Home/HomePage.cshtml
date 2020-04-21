@@ -1,4 +1,38 @@
 ﻿@{
     ViewData["Title"] = "HomePage";
 }
-<text>This is the homepage of the site</text>
+
+<link rel="stylesheet" href="~/css/HomePage.css" />
+
+<h1>Welcome to Matrix Calculator</h1>
+
+<div class="imageOptions">
+    <div class="image">
+        <a asp-area="" asp-controller="Home" asp-action="MatrixCalculator">
+            <img src="~/Images/calculator.jpg" />
+            <div class="image-text">
+                <div class="text">Matrix Calculator</div>
+            </div>
+        </a>
+    </div>
+    <div class="image">
+        <a asp-area="" asp-controller="Home" asp-action="SystemsOfEquations">
+            <img src="~/Images/equations.jpg" />
+            <div class="image-text">
+                <div class="text">Systems Of Equations</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="Information">
+    <p>
+        A matrix, in a mathematical context, is a rectangular array of numbers, symbols, or expressions that are arranged in rows and columns. Matrices are often used in scientific fields such as physics, computer graphics, probability theory, statistics, calculus, numerical analysis, and more.
+        <br />
+        The dimensions of a matrix, A, are typically denoted as m × n. This means that A has m rows and n columns. When referring to a specific value in a matrix, called an element, a variable with two subscripts is often used to denote each element based on their position in the matrix. For example, given a<sub>ij</sub> where i = 1 and j = 3, a<sub>13</sub> is the value of the element in the first row and the third column of the given matrix.
+        <br />
+        Matrix operations such as addition, multiplication, subtraction, etc., are similar to what most people are likely accustomed to seeing in basic arithmetic and algebra, but do differ in some ways, and are subject to certain constraints. Below are descriptions of the matrix operations that this calculator can perform.
+        <br />
+        Matrix operations such as addition, multiplication, subtraction, etc., are similar to what most people are likely accustomed to seeing in basic arithmetic and algebra, but do differ in some ways, and are subject to certain constraints. Below are descriptions of the matrix operations that this calculator can perform.
+    </p>
+</div>

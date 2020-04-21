@@ -4,12 +4,6 @@
     word-break: break-all;
 }
 
-nav {
-    -webkit-box-shadow: 0 8px 6px -6px #999;
-    -moz-box-shadow: 0 8px 6px -6px #999;
-    box-shadow: 0 8px 6px -6px #999;
-}
-
 a.nav-item{
     text-decoration:none;
     color:whitesmoke;
@@ -25,12 +19,4 @@ a.nav-item:active{
 
 li{
     margin-left: 20px;
-}
-
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    white-space: nowrap;
-    line-height: 50px; /* Vertically center the text there */
 }
