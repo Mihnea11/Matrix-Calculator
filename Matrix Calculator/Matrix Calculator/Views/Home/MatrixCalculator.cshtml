@@ -2,4 +2,100 @@
     ViewData["Title"] = "MatrixCalculator";
 }
 
-<text>This is the basic matrix calculus page</text>
+<link rel="stylesheet" href="~/css/MatrixCalculator.css" />
+
+<form name="calcf">
+    <table style="text-align: center">
+        <tbody>
+            <tr>
+                <td>
+                    <div class="panel" style="display: inline-block; vertical-align: text-top; margin-left: 170px">
+                        <div id="sectitle" style="font-size: 2em;  padding-top: 30px;">Matrix A Input</div>
+                        <table>
+                            <tbody>
+                                <tr><td align="center">Row</td><td>&nbsp;</td><td>&nbsp;</td><td colspan="2">Column</td></tr>
+                                <tr>
+                                    <td><input type="number" name="arow" value="4" class="in3char" min="1" max="10" onblur="updateInput('a');"></td>
+                                    <td>
+                                        <div class="arrow-up" onclick="addRemove('a', 'row', 'add');"></div>
+                                        <div style="height:5px;"></div><div class="arrow-down" onclick="addRemove('a', 'row', 'remove');;"></div>
+                                    </td>
+                                    <td class="verybigtext">&nbsp; ×</td>
+                                    <td><input type="number" name="acolumn" value="4" class="in3char" min="1" max="10" onblur="updateInput('a');"></td>
+                                    <td>
+                                        <div class="arrow-left" onclick="addRemove('a', 'column', 'remove');"></div>
+                                        <div class="arrow-right" onclick="addRemove('a', 'column', 'add');"></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div id="minputa"><table><tbody><tr><td><input type="text" name="a00" value="" class="in4char"></td><td><input type="text" name="a01" value="" class="in4char"></td><td><input type="text" name="a02" value="" class="in4char"></td><td><input type="text" name="a03" value="" class="in4char"></td></tr><tr><td><input type="text" name="a10" value="" class="in4char"></td><td><input type="text" name="a11" value="" class="in4char"></td><td><input type="text" name="a12" value="" class="in4char"></td><td><input type="text" name="a13" value="" class="in4char"></td></tr><tr><td><input type="text" name="a20" value="" class="in4char"></td><td><input type="text" name="a21" value="" class="in4char"></td><td><input type="text" name="a22" value="" class="in4char"></td><td><input type="text" name="a23" value="" class="in4char"></td></tr><tr><td><input type="text" name="a30" value="" class="in4char"></td><td><input type="text" name="a31" value="" class="in4char"></td><td><input type="text" name="a32" value="" class="in4char"></td><td><input type="text" name="a33" value="" class="in4char"></td></tr></tbody></table></div>
+                        <div style="text-align:center; padding-bottom: 5px; padding-top: 10px;" id="txtbtn">
+                            <a class="options" href="#" onclick="return popValue('a', '');">Clear</a>
+                            <a class="options" href="#" onclick="return popValue('a', 0);">All 0</a>
+                            <a class="options" href="#" onclick="return popValue('a', 1);">All 1</a>
+                            <a class="options" href="#" onclick="return popValue('a', 'r');">Random</a>
+                        </div>
+                        <div style="text-align:center; padding-bottom: 5px" id="txtbtn">
+                            <a class="options" href="#" onclick="return cTranspose('a');">Transpose</a>
+                            <a class="options" href="#" onclick="return cPower('a');">Power of</a>
+                            <input style="width: 30px" type="number" name="pa" value="2" class="in3char">
+                        </div>
+                        <div style="text-align:center" id="txtbtn">
+                            <a class="options" href="#" onclick="return cDeterminant('a');">Determinant</a>
+                            <a class="options" href="#" onclick="return cInverse('a');">Inverse</a>
+                            <a class="options" href="#" onclick="return cTimes('a');">Multiply by </a><input style="width:30px" type="number" name="ta" value="3" class="in3char">
+                        </div>
+                    </div>
+
+                    <div class="panel" style="display: inline-block;vertical-align: text-top; margin-left: 170px">
+                        <div id="sectitle" style="font-size: 2em; padding-top: 30px;">Matrix B Input</div>
+                        <table>
+                            <tbody>
+                                <tr><td align="center">Row</td><td>&nbsp;</td><td>&nbsp;</td><td colspan="2">Column</td></tr>
+                                <tr>
+                                    <td><input type="number" name="brow" value="4" class="in3char" min="1" max="10" onblur="updateInput('b');"></td>
+                                    <td><div class="arrow-up" onclick="addRemove('b', 'row', 'add');"></div><div style="height:5px;"></div><div class="arrow-down" onclick="addRemove('b', 'row', 'remove');;"></div></td>
+                                    <td class="verybigtext">&nbsp; ×</td>
+                                    <td><input type="number" name="bcolumn" value="4" class="in3char" min="1" max="10" onblur="updateInput('b');"></td>
+                                    <td><div class="arrow-left" onclick="addRemove('b', 'column', 'remove');"></div> <div class="arrow-right" onclick="addRemove('b', 'column', 'add');"></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div id="minputb"><table><tbody><tr><td><input type="text" name="b00" value="" class="in4char"></td><td><input type="text" name="b01" value="" class="in4char"></td><td><input type="text" name="b02" value="" class="in4char"></td><td><input type="text" name="b03" value="" class="in4char"></td></tr><tr><td><input type="text" name="b10" value="" class="in4char"></td><td><input type="text" name="b11" value="" class="in4char"></td><td><input type="text" name="b12" value="" class="in4char"></td><td><input type="text" name="b13" value="" class="in4char"></td></tr><tr><td><input type="text" name="b20" value="" class="in4char"></td><td><input type="text" name="b21" value="" class="in4char"></td><td><input type="text" name="b22" value="" class="in4char"></td><td><input type="text" name="b23" value="" class="in4char"></td></tr><tr><td><input type="text" name="b30" value="" class="in4char"></td><td><input type="text" name="b31" value="" class="in4char"></td><td><input type="text" name="b32" value="" class="in4char"></td><td><input type="text" name="b33" value="" class="in4char"></td></tr></tbody></table></div>
+                        <div style="text-align:center; padding-bottom: 5px; padding-top: 10px;" id="txtbtn">
+                            <a class="options" href="#" onclick="return popValue('b', '');">Clear</a>
+                            <a class="options" href="#" onclick="return popValue('b', 0);">All 0</a>
+                            <a class="options" href="#" onclick="return popValue('b', 1);">All 1</a>
+                            <a class="options" href="#" onclick="return popValue('b', 'r');">Random</a>
+                        </div>
+                        <div style="text-align:center; padding-bottom: 5px;" id="txtbtn">
+                            <a class="options" href="#" onclick="return cTranspose('b');">Transpose</a>
+                            <a class="options" href="#" onclick="return cPower('b');">Power of</a>
+                            <input style="width:30px" type="number" name="pb" value="2" class="in3char">
+                        </div>
+                        <div style="text-align:center;" id="txtbtn">
+                            <a class="options" href="#" onclick="return cDeterminant('b');">Determinant</a>
+                            <a class="options" href="#" onclick="return cInverse('b');">Inverse</a>
+                            <a class="options" href="#" onclick="return cTimes('b');">Multiply by</a>
+                            <input style="width:30px" type="number" name="tb" value="3" class="in3char">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td id="submitbtn" align="center" style="padding-top: 20px">
+                    <button onclick="return cAdd();" style="margin-left: 200px">A + B</button>
+                    <button onclick="return cSub();">A – B</button>
+                    <button onclick="return cMultiple();">A * B</button>
+                    <button onclick="return cSwap();">A ↔ B</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+<div id="resultouta" style="font-size: 1.5em"></div>
+<div id="resultoutb" style="font-size: 1.5em"></div>
+<div id="resultout" style="font-size: 1.5em"></div>
+<script src="~/js/MatrixCalculator.js"></script>
