@@ -1,0 +1,164 @@
+﻿.text{
+    text-align: center;
+    font-size: 2em;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.panel{
+    display: inline-block;
+    text-align: center;
+}
+
+.systemOperations {
+    text-align: center;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    white-space: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-size: medium;
+    font-style: normal;
+    text-align: start;
+    border-spacing: 2px;
+    border-color: grey;
+    font-variant: normal;
+}
+
+input[type=text], input[type=url], input[type=tel], input[type=number], input[type=color], input[type=email], select {
+    border: 1px solid #044284;
+    border-radius: 2px;
+    box-shadow: 1px 1px 2px #666;
+    font-size: 16px;
+}
+
+.in4char {
+    text-align: right;
+    width: 70px;
+    height: 35px;
+}
+
+input {
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 0px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+.numberofx{
+    padding-bottom: 30px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.in3char {
+    text-align: right;
+    width: 35px;
+}
+
+.arrow-up {
+    margin-left: 10px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 10px solid #000;
+}
+
+.arrow-down {
+    margin-left: 10px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid #000;
+}
+
+input[type=number]:disabled{
+    background-color: white;
+}
+
+button {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #4CAF50;
+    color: white;
+}
+
+button:active{
+    background-color: #2f6a31;
+    color: white;
+}
+
+button:focus{
+    outline: none;
+}
+
+.options {
+    color: black;
+    margin: 30px;
+}
+
+.options:hover {
+    text-decoration: none;
+    background-color: #4CAF50;
+    border-radius: 2px;
+    color: white;
+    transition: .2s ease;
+    padding: 3px;
+}
+
+.options:active{
+    text-decoration: none;
+    background-color: #2f6a31;
+    border-radius: 2px;
+    color: white;
+    transition: .2s ease;
+    padding: 3px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

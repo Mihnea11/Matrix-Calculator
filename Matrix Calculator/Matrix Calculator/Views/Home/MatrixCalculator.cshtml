@@ -9,19 +9,24 @@
         <tbody>
             <tr>
                 <td>
-                    <div class="panel" style="display: inline-block; vertical-align: text-top; margin-left: 170px">
+                    <div class="panel" style="display: inline-block; vertical-align: text-top;">
                         <div id="sectitle" style="font-size: 2em;  padding-top: 30px;">Matrix A Input</div>
                         <table>
                             <tbody>
                                 <tr><td align="center">Row</td><td>&nbsp;</td><td>&nbsp;</td><td colspan="2">Column</td></tr>
                                 <tr>
-                                    <td><input type="number" name="arow" value="4" class="in3char" min="1" max="10" onblur="updateInput('a');"></td>
+                                    <td>
+                                        <input type="number" name="arow" value="4" class="in3char" min="1" max="10" onblur="updateInput('a');" disabled>
+                                    </td>
                                     <td>
                                         <div class="arrow-up" onclick="addRemove('a', 'row', 'add');"></div>
-                                        <div style="height:5px;"></div><div class="arrow-down" onclick="addRemove('a', 'row', 'remove');;"></div>
+                                        <div style="height:5px;"></div>
+                                        <div class="arrow-down" onclick="addRemove('a', 'row', 'remove');;"></div>
                                     </td>
                                     <td class="verybigtext">&nbsp; ×</td>
-                                    <td><input type="number" name="acolumn" value="4" class="in3char" min="1" max="10" onblur="updateInput('a');"></td>
+                                    <td>
+                                        <input type="number" name="acolumn" value="4" class="in3char" min="1" max="10" onblur="updateInput('a');" disabled>
+                                    </td>
                                     <td>
                                         <div class="arrow-left" onclick="addRemove('a', 'column', 'remove');"></div>
                                         <div class="arrow-right" onclick="addRemove('a', 'column', 'add');"></div>
@@ -29,7 +34,36 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <div id="minputa"><table><tbody><tr><td><input type="text" name="a00" value="" class="in4char"></td><td><input type="text" name="a01" value="" class="in4char"></td><td><input type="text" name="a02" value="" class="in4char"></td><td><input type="text" name="a03" value="" class="in4char"></td></tr><tr><td><input type="text" name="a10" value="" class="in4char"></td><td><input type="text" name="a11" value="" class="in4char"></td><td><input type="text" name="a12" value="" class="in4char"></td><td><input type="text" name="a13" value="" class="in4char"></td></tr><tr><td><input type="text" name="a20" value="" class="in4char"></td><td><input type="text" name="a21" value="" class="in4char"></td><td><input type="text" name="a22" value="" class="in4char"></td><td><input type="text" name="a23" value="" class="in4char"></td></tr><tr><td><input type="text" name="a30" value="" class="in4char"></td><td><input type="text" name="a31" value="" class="in4char"></td><td><input type="text" name="a32" value="" class="in4char"></td><td><input type="text" name="a33" value="" class="in4char"></td></tr></tbody></table></div>
+                        <div id="minputa">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" name="a00" value="" class="in4char"></td>
+                                        <td><input type="text" name="a01" value="" class="in4char"></td>
+                                        <td><input type="text" name="a02" value="" class="in4char"></td>
+                                        <td><input type="text" name="a03" value="" class="in4char"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" name="a10" value="" class="in4char"></td>
+                                        <td><input type="text" name="a11" value="" class="in4char"></td>
+                                        <td><input type="text" name="a12" value="" class="in4char"></td>
+                                        <td><input type="text" name="a13" value="" class="in4char"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" name="a20" value="" class="in4char"></td>
+                                        <td><input type="text" name="a21" value="" class="in4char"></td>
+                                        <td><input type="text" name="a22" value="" class="in4char"></td>
+                                        <td><input type="text" name="a23" value="" class="in4char"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" name="a30" value="" class="in4char"></td>
+                                        <td><input type="text" name="a31" value="" class="in4char"></td>
+                                        <td><input type="text" name="a32" value="" class="in4char"></td>
+                                        <td><input type="text" name="a33" value="" class="in4char"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         <div style="text-align:center; padding-bottom: 5px; padding-top: 10px;" id="txtbtn">
                             <a class="options" href="#" onclick="return popValue('a', '');">Clear</a>
                             <a class="options" href="#" onclick="return popValue('a', 0);">All 0</a>
@@ -48,16 +82,16 @@
                         </div>
                     </div>
 
-                    <div class="panel" style="display: inline-block;vertical-align: text-top; margin-left: 170px">
+                    <div class="panel" style="display: inline-block;vertical-align: text-top; margin-left: 150px;">
                         <div id="sectitle" style="font-size: 2em; padding-top: 30px;">Matrix B Input</div>
                         <table>
                             <tbody>
                                 <tr><td align="center">Row</td><td>&nbsp;</td><td>&nbsp;</td><td colspan="2">Column</td></tr>
                                 <tr>
-                                    <td><input type="number" name="brow" value="4" class="in3char" min="1" max="10" onblur="updateInput('b');"></td>
+                                    <td><input type="number" name="brow" value="4" class="in3char" min="1" max="10" onblur="updateInput('b');" disabled></td>
                                     <td><div class="arrow-up" onclick="addRemove('b', 'row', 'add');"></div><div style="height:5px;"></div><div class="arrow-down" onclick="addRemove('b', 'row', 'remove');;"></div></td>
                                     <td class="verybigtext">&nbsp; ×</td>
-                                    <td><input type="number" name="bcolumn" value="4" class="in3char" min="1" max="10" onblur="updateInput('b');"></td>
+                                    <td><input type="number" name="bcolumn" value="4" class="in3char" min="1" max="10" onblur="updateInput('b');" disabled></td>
                                     <td><div class="arrow-left" onclick="addRemove('b', 'column', 'remove');"></div> <div class="arrow-right" onclick="addRemove('b', 'column', 'add');"></div></td>
                                 </tr>
                             </tbody>
@@ -85,7 +119,7 @@
             </tr>
             <tr>
                 <td id="submitbtn" align="center" style="padding-top: 20px">
-                    <button onclick="return cAdd();" style="margin-left: 200px">A + B</button>
+                    <button onclick="return cAdd();" style="margin-left: auto">A + B</button>
                     <button onclick="return cSub();">A – B</button>
                     <button onclick="return cMultiple();">A * B</button>
                     <button onclick="return cSwap();">A ↔ B</button>

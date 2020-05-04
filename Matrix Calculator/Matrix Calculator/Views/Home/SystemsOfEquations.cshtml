@@ -2,4 +2,90 @@
     ViewData["Title"] = "SytemsOfEquations";
 }
 
-<text>This is the page where systems of equations will be solved</text>
+<link rel="stylesheet" href="~/css/SystemsOfEquations.css" />
+
+<form name="calcf">
+    <div class="text">Input the matrix of the system</div>
+    <div class="systemOperations">
+        <table style="padding-bottom: 20px">
+            <tbody>
+                <tr>
+                    <td style="font-size: 1.5em">Number of variables <input type="number" name="nr" value="4" class="in3char" min="1" max="10" onblur="updateSystem('a');" disabled=""></td>
+                    <td>
+                        <div class="arrow-up" onclick="addDelete('add');"></div>
+                        <div style="height: 5px"></div>
+                        <div class="arrow-down" onclick="addDelete('remove')"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="panel">
+            <div id="minputa">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" name="a00" value="" class="in4char"> X<sub>1</sub> +</td>
+                            <td><input type="text" name="a01" value="" class="in4char"> X<sub>2</sub> +</td>
+                            <td><input type="text" name="a02" value="" class="in4char"> X<sub>3</sub> +</td>
+                            <td><input type="text" name="a03" value="" class="in4char"> X<sub>4</sub> =</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="a00" value="" class="in4char"> X<sub>1</sub> +</td>
+                            <td><input type="text" name="a01" value="" class="in4char"> X<sub>2</sub> +</td>
+                            <td><input type="text" name="a02" value="" class="in4char"> X<sub>3</sub> +</td>
+                            <td><input type="text" name="a03" value="" class="in4char"> X<sub>4</sub> =</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="a00" value="" class="in4char"> X<sub>1</sub> +</td>
+                            <td><input type="text" name="a01" value="" class="in4char"> X<sub>2</sub> +</td>
+                            <td><input type="text" name="a02" value="" class="in4char"> X<sub>3</sub> +</td>
+                            <td><input type="text" name="a03" value="" class="in4char"> X<sub>4</sub> =</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="a00" value="" class="in4char"> X<sub>1</sub> +</td>
+                            <td><input type="text" name="a01" value="" class="in4char"> X<sub>2</sub> +</td>
+                            <td><input type="text" name="a02" value="" class="in4char"> X<sub>3</sub> +</td>
+                            <td><input type="text" name="a03" value="" class="in4char"> X<sub>4</sub> =</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div id="minputb">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" name="b0" value="" class="in4char"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="b1" value="" class="in4char"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="b2" value="" class="in4char"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="b3" value="" class="in4char"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div style="padding-top: 10px; padding-bottom: 10px;">
+            <a class="options" href="#" onclick="return popValue('');">Clear</a>
+            <a class="options" href="#" onclick="return popValue('r');">Random</a>
+        </div>
+
+        <div class="solveSystem">
+            <button onclick="return testCompatibility()">Test compatibility</button>
+            <button onclick="return solveWithCramer();">Solve using Cramer's Rule</button>
+        </div>
+    </div>
+</form>
+
+<div style="font-size: 1.3em; text-align: center; padding-top:50px;">
+    <div id="resultOut"></div>
+</div>
+<script src="~/js/SystemsOfEquations.js"></script>

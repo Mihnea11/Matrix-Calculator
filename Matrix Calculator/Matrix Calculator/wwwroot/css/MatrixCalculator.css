@@ -106,6 +106,8 @@ button:focus{
 }
 
 table {
+    margin-left: auto;
+    margin-right: auto;
     display: table;
     border-collapse: separate;
     box-sizing: border-box;
@@ -191,4 +193,8 @@ input::-webkit-inner-spin-button {
 
 a:hover{
     text-decoration: none;
+}
+
+input[type=number]:disabled {
+    background-color: white;
 }
