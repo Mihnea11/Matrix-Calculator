@@ -1,5 +1,18 @@
-﻿var matrixa = new Array(5);
+﻿function isNumber(val) {
+    val = val + "";
+    if (val.length < 1)
+        return false;
+    if (isNaN(val)) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+var matrixa = new Array(5);
 var matrixb = new Array(5);
+var errorMsg;
 
 for (var i = 0; i < 5; i++) {
     matrixa[i] = new Array(5);
@@ -37,6 +50,33 @@ function readInput(mname) {
             if (!(thisField === undefined)) {
                 if (mname == 'a') matrixa[i][j] = thisField.value;
                 if (mname == 'b') matrixb[i][j] = thisField.value;
+            }
+        }
+    }
+}
+
+function isInputValid() {
+    readInput('a');
+    readInput('b');
+
+    eval("var thisField = document.calcf.nr");
+    var n = thisField.value;
+    for (var i = 0; i < n; i++) {
+        for (var j = 0; j < n; j++) {
+            var value = matrixa[i][j];
+            var isValid = isNumber(value);
+            if (isValid == false) {
+                errorMsg = 'Please provide a valid input.';
+            }
+
+        }
+    }
+
+    for (var i = 0; i < n; i++) {
+        for (var j = 0; j < 1; j++) {
+            var isValid = isNumber(matrixb[i][j]);
+            if (isValid == false) {
+                errorMsg = 'Please provide a valid input.';
             }
         }
     }
@@ -108,6 +148,7 @@ updateSystem('a');
 updateSystem('b');
 
 var extendedMatrix = new Array();
+var isCramer = true;
 
 function findDet(matrix, size) {
     if (size < 3) {
@@ -187,56 +228,67 @@ function rankOfMatrix(matrix, r, c) {
     return rank;
 }
 
-function testCompatibility(){
-    readInput('a');
-    readInput('b');
+function testCompatibility() {
+    errorMsg = '';
+    isInputValid();
 
-    eval("var thisField = document.calcf.nr");
-    var message;
-    var n = thisField.value;
-    var n1 = n;
-    n1++;
-
-    for (var i = 0; i < n; i++) {
-        extendedMatrix[i] = new Array();
-        for (var j = 0; j <= n; j++) {
-            if (j == n)
-                extendedMatrix[i][j] = matrixb[i][0];
-            else
-                extendedMatrix[i][j] = matrixa[i][j];
-        }
-    }
-
-    extendedMatrix[n] = new Array();
-    for (var j = 0; j < n1; j++) {
-        extendedMatrix[n][j] = 0;
-    }
-
-    var tempArray = new Array();
-    for (var i = 0; i < n; i++) {
-        tempArray[i] = new Array();
-        for (var j = 0; j < n; j++) {
-            tempArray[i][j] = matrixa[i][j];
-        }
-    }
-
-    var rank1 = rankOfMatrix(extendedMatrix, n1, n1);
-    var rank2 = rankOfMatrix(tempArray, n, n);
-    var det = findDet(matrixa, n);
-
-    if (rank1 != rank2) {
-        message = 'The system is incosistent and has no solutions.';
+    if (errorMsg != '') {
+        document.getElementById("resultOut").innerHTML = errorMsg;
     }
     else {
-        if (n == thisField.value && det != 0)
-            message = 'The system is consistent and has one unique solution.';
-        else
-            message = 'The system consistent and has an infinity of solutions';
-    }
+        isCramer = false;
+        readInput('a');
+        readInput('b');
 
-    document.getElementById("resultOut").innerHTML = message;
-    updateSystem('a');
-    updateSystem('b');
+        eval("var thisField = document.calcf.nr");
+        var message;
+        var n = thisField.value;
+        var n1 = n;
+        n1++;
+
+        for (var i = 0; i < n; i++) {
+            extendedMatrix[i] = new Array();
+            for (var j = 0; j <= n; j++) {
+                if (j == n)
+                    extendedMatrix[i][j] = matrixb[i][0];
+                else
+                    extendedMatrix[i][j] = matrixa[i][j];
+            }
+        }
+
+        extendedMatrix[n] = new Array();
+        for (var j = 0; j < n1; j++) {
+            extendedMatrix[n][j] = 0;
+        }
+
+        var tempArray = new Array();
+        for (var i = 0; i < n; i++) {
+            tempArray[i] = new Array();
+            for (var j = 0; j < n; j++) {
+                tempArray[i][j] = matrixa[i][j];
+            }
+        }
+
+        var rank1 = rankOfMatrix(extendedMatrix, n1, n1);
+        var rank2 = rankOfMatrix(tempArray, n, n);
+        var det = findDet(matrixa, n);
+
+        if (rank1 != rank2) {
+            message = 'The system is incosistent and has no solutions.';
+        }
+        else {
+            if (n == rank2) {
+                message = 'The system is consistent and has one unique solution.';
+                isCramer = true;
+            }
+            else
+                message = 'The system consistent and has an infinity of solutions';
+        }
+
+        document.getElementById("resultOut").innerHTML = message;
+        updateSystem('a');
+        updateSystem('b');
+    }
     return false;
 }
 
@@ -252,36 +304,42 @@ function swapC(firstMatrix, secondMatrix, fc, sc, size) {
 }
 
 function solveWithCramer() {
-    readInput('a');
-    readInput('b');
-
-    eval("var thisField = document.calcf.nr");
-    var message;
-    var n = thisField.value;
-
-    var det = findDet(matrixa, n);
-    if (det != 0) {
-        message = 'This system is consistent and has a unique solution.';
+    errorMsg = '';
+    isInputValid();
+    if (errorMsg != '') {
+        document.getElementById("resultOut").innerHTML = errorMsg;
     }
     else {
-        message = 'This system is inconsistent and has no solution';
-    }
+        readInput('a');
+        readInput('b');
 
-    if (message != 'This system is consistent and has a unique solution.') {
-        document.getElementById('resultOut').innerHTML = 'This system can not be solved using Cramer Rule';
-    }
-    else {
-        var mes = '<div class="solution">';
-        for (var i = 0; i < n; i++) {
-            var Det = swapC(matrixa, matrixb, i, 0, n);
-            var sol = Det / det;
-            mes += ' X <sub>' + (i + 1) + '</sub>=' + sol + '<br />';
-            swapC(matrixa, matrixb, i, 0, n);
+        eval("var thisField = document.calcf.nr");
+        var message;
+        var n = thisField.value;
+        var det = findDet(matrixa, n);
+
+        if (isCramer == true) {
+            message = 'This system is consistent and has a unique solution.';
+        }
+        else {
+            message = 'This system is inconsistent and has no solution';
         }
 
-        mes += '</div>';
-        document.getElementById('resultOut').innerHTML = mes;
-    }
+        if (message != 'This system is consistent and has a unique solution.') {
+            document.getElementById('resultOut').innerHTML = 'This system can not be solved using Cramer Rule';
+        }
+        else {
+            var mes = '<div class="solution">';
+            for (var i = 0; i < n; i++) {
+                var Det = swapC(matrixa, matrixb, i, 0, n);
+                var sol = Det / det;
+                mes += ' X <sub>' + (i + 1) + '</sub>=' + sol + '<br />';
+                swapC(matrixa, matrixb, i, 0, n);
+            }
 
+            mes += '</div>';
+            document.getElementById('resultOut').innerHTML = mes;
+        }
+    }
     return false;
 }
